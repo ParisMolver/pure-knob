@@ -509,8 +509,8 @@
 					const relValue = (value - valMin) / (valMax - valMin);
 					const relAngle = relValue * (angleEnd - angleStart);
 					const angleVal = actualStart + relAngle;
-					var colorTrack = properties.colorBG;
-					var colorFilling = properties.colorFG;
+					const colorTrack = properties.colorBG;
+					var colorFilling_temp = properties.colorFG;
 					const colorLabel = properties.colorLabel;
 					const textScale = properties.textScale;
 					const trackWidth = properties.trackWidth;
@@ -538,8 +538,8 @@
 					 * Draw the number.
 					 */
 					if (type == 'timed'){
-						colorTrack = properties.colorTimed;
-						colorFilling = properties.colorTimed;
+						//colorTrack = properties.colorTimed;
+						colorFilling_temp = properties.colorTimed;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
@@ -547,8 +547,8 @@
 						ctx.fillText(valueStr + ' (s)', centerX, centerY);
 						
 					} else if (type == 'weighted'){
-						colorTrack = properties.colorWeighted;
-						colorFilling = properties.colorWeighted;
+						//colorTrack = properties.colorWeighted;
+						colorFilling_temp = properties.colorWeighted;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
@@ -557,8 +557,8 @@
 						
 					} else {
 						// Neither!
-						colorTrack = properties.colorDisabled;
-						colorFilling = properties.colorDisabled;
+						//colorTrack = properties.colorDisabled;
+						colorFilling_temp = properties.colorDisabled;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
@@ -566,6 +566,8 @@
 						ctx.fillText(' ', centerX, centerY);
 						
 					}
+
+					const colorFilling = colorFilling_temp;
 
 					/*
 						* Draw the track.
