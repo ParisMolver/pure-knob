@@ -538,30 +538,33 @@
 					 * Draw the number.
 					 */
 					if (type == 'timed'){
+						colorTrack = properties.colorTimed;
+						colorFilling = properties.colorTimed;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueStr + ' (s)', centerX, centerY);
-						colorTrack = properties.colorTimed;
-						colorFilling = properties.colorTimed;
+						
 					} else if (type == 'weighted'){
+						colorTrack = properties.colorWeighted;
+						colorFilling = properties.colorWeighted;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueFloat + ' (L)', centerX, centerY);
-						colorTrack = properties.colorWeighted;
-						colorFilling = properties.colorWeighted;
+						
 					} else {
 						// Neither!
+						colorTrack = properties.colorDisabled;
+						colorFilling = properties.colorDisabled;
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(' ', centerX, centerY);
-						colorTrack = properties.colorDisabled;
-						colorFilling = properties.colorDisabled;
+						
 					}
 
 					/*
