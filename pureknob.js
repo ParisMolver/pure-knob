@@ -535,35 +535,6 @@
 					ctx.clearRect(0, 0, width, height);
 
 					/*
-					 * Draw the track.
-					 */
-					ctx.beginPath();
-					ctx.arc(centerX, centerY, radius, actualStart, actualEnd);
-					ctx.lineCap = 'butt';
-					ctx.lineWidth = lineWidth;
-					ctx.strokeStyle = colorTrack;
-					ctx.stroke();
-
-					/*
-					 * Draw the filling.
-					 */
-					ctx.beginPath();
-
-					/*
-					 * Check if we're in needle mode.
-					 */
-					if (needle) {
-						ctx.arc(centerX, centerY, radius, angleVal - 0.1, angleVal + 0.1);
-					} else {
-						ctx.arc(centerX, centerY, radius, actualStart, angleVal);
-					}
-
-					ctx.lineCap = 'butt';
-					ctx.lineWidth = lineWidth;
-					ctx.strokeStyle = colorFilling;
-					ctx.stroke();
-
-					/*
 					 * Draw the number.
 					 */
 					if (type == 'timed'){
@@ -592,6 +563,35 @@
 						const colorTrack = properties.colorDisabled;
 						const colorFilling = properties.colorDisabled;
 					}
+
+					/*
+						* Draw the track.
+						*/
+					ctx.beginPath();
+					ctx.arc(centerX, centerY, radius, actualStart, actualEnd);
+					ctx.lineCap = 'butt';
+					ctx.lineWidth = lineWidth;
+					ctx.strokeStyle = colorTrack;
+					ctx.stroke();
+
+					/*
+						* Draw the filling.
+						*/
+					ctx.beginPath();
+
+					/*
+						* Check if we're in needle mode.
+						*/
+					if (needle) {
+						ctx.arc(centerX, centerY, radius, angleVal - 0.1, angleVal + 0.1);
+					} else {
+						ctx.arc(centerX, centerY, radius, actualStart, angleVal);
+					}
+
+					ctx.lineCap = 'butt';
+					ctx.lineWidth = lineWidth;
+					ctx.strokeStyle = colorFilling;
+					ctx.stroke();
 
 					/*
 					 * Draw the label
