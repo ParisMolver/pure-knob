@@ -424,7 +424,8 @@
 					'trackWidth': 0.4,
 					'valMin': 0,
 					'valMax': 100,
-					'val': 0
+					'val': 0,
+					'type': null
 				},
 
 				/*
@@ -495,9 +496,11 @@
 					const actualStart = angleStart + angleOffset;
 					const actualEnd = angleEnd + angleOffset;
 					const label = properties.label;
+					const type = properties.type;
 					const value = properties.val;
 					const valueToString = properties.fnValueToString;
 					const valueStr = valueToString(value);
+					const valueFloat = parseFloat(value/10).toFixed(1);
 					const valMin = properties.valMin;
 					const valMax = properties.valMax;
 					const relValue = (value - valMin) / (valMax - valMin);
@@ -560,11 +563,26 @@
 					/*
 					 * Draw the number.
 					 */
-					ctx.font = fontSizeString + 'px sans-serif';
-					ctx.fillStyle = colorFilling;
-					ctx.textAlign = 'center';
-					ctx.textBaseline = 'middle';
-					ctx.fillText(valueStr, centerX, centerY);
+					if (type == 'timed'){
+						ctx.font = fontSizeString + 'px sans-serif';
+						ctx.fillStyle = colorFilling;
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						ctx.fillText(valueStr + ' (s)', centerX, centerY);
+					} else if (type == 'weighted'){
+						ctx.font = fontSizeString + 'px sans-serif';
+						ctx.fillStyle = colorFilling;
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						ctx.fillText(valueFloat + ' (L)', centerX, centerY);
+					} else {
+						// Neither!
+						ctx.font = fontSizeString + 'px sans-serif';
+						ctx.fillStyle = colorFilling;
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						ctx.fillText(' ', centerX, centerY);
+					}
 
 					/*
 					 * Draw the label
