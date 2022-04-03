@@ -414,6 +414,9 @@
 					'angleStart': 0,
 					'colorBG': '#181818',
 					'colorFG': '#ff8800',
+					'colorWeighted' : '#5f88fa',
+					'colorTimed' : '#88ff88',
+					'colorDisabled' : '#757575',
 					'colorLabel': '#ffffff',
 					'fnStringToValue': function(string) { return parseInt(string); },
 					'fnValueToString': function(value) { return value.toString(); },
@@ -569,12 +572,16 @@
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueStr + ' (s)', centerX, centerY);
+						const colorTrack = properties.colorTimed;
+						const colorFilling = properties.colorTimed;
 					} else if (type == 'weighted'){
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueFloat + ' (L)', centerX, centerY);
+						const colorTrack = properties.colorWeighted;
+						const colorFilling = properties.colorWeighted;
 					} else {
 						// Neither!
 						ctx.font = fontSizeString + 'px sans-serif';
@@ -582,6 +589,8 @@
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(' ', centerX, centerY);
+						const colorTrack = properties.colorDisabled;
+						const colorFilling = properties.colorDisabled;
 					}
 
 					/*
@@ -1197,4 +1206,3 @@
 
 	return new PureKnob();
 }));
-
