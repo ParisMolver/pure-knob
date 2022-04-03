@@ -541,7 +541,7 @@
 						//colorTrack = properties.colorTimed;
 						colorFilling_temp = properties.colorTimed;
 						ctx.font = fontSizeString + 'px sans-serif';
-						ctx.fillStyle = colorFilling;
+						ctx.fillStyle = colorFilling_temp;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueStr + ' (s)', centerX, centerY);
@@ -550,7 +550,7 @@
 						//colorTrack = properties.colorWeighted;
 						colorFilling_temp = properties.colorWeighted;
 						ctx.font = fontSizeString + 'px sans-serif';
-						ctx.fillStyle = colorFilling;
+						ctx.fillStyle = colorFilling_temp;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueFloat + ' (L)', centerX, centerY);
@@ -560,7 +560,7 @@
 						//colorTrack = properties.colorDisabled;
 						colorFilling_temp = properties.colorDisabled;
 						ctx.font = fontSizeString + 'px sans-serif';
-						ctx.fillStyle = colorFilling;
+						ctx.fillStyle = colorFilling_temp;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(' ', centerX, centerY);
