@@ -509,8 +509,8 @@
 					const relValue = (value - valMin) / (valMax - valMin);
 					const relAngle = relValue * (angleEnd - angleStart);
 					const angleVal = actualStart + relAngle;
-					// const colorTrack = properties.colorBG;
-					// const colorFilling = properties.colorFG;
+					var colorTrack = properties.colorBG;
+					var colorFilling = properties.colorFG;
 					const colorLabel = properties.colorLabel;
 					const textScale = properties.textScale;
 					const trackWidth = properties.trackWidth;
@@ -543,16 +543,16 @@
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueStr + ' (s)', centerX, centerY);
-						const colorTrack = properties.colorTimed;
-						const colorFilling = properties.colorTimed;
+						colorTrack = properties.colorTimed;
+						colorFilling = properties.colorTimed;
 					} else if (type == 'weighted'){
 						ctx.font = fontSizeString + 'px sans-serif';
 						ctx.fillStyle = colorFilling;
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(valueFloat + ' (L)', centerX, centerY);
-						const colorTrack = properties.colorWeighted;
-						const colorFilling = properties.colorWeighted;
+						colorTrack = properties.colorWeighted;
+						colorFilling = properties.colorWeighted;
 					} else {
 						// Neither!
 						ctx.font = fontSizeString + 'px sans-serif';
@@ -560,8 +560,8 @@
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
 						ctx.fillText(' ', centerX, centerY);
-						const colorTrack = properties.colorDisabled;
-						const colorFilling = properties.colorDisabled;
+						colorTrack = properties.colorDisabled;
+						colorFilling = properties.colorDisabled;
 					}
 
 					/*
